@@ -37,7 +37,7 @@ const processQuestions = () => {
 }
 
 const processQuestion = () => {
-  const randomNumber = Math.floor(Math.random() * 100)
+  const randomNumber = getRandomInt()
   const isEvenNumber = isEven(randomNumber)
   const userAnswer = readlineSync.question(`Question: ${randomNumber}\n`)
 
@@ -67,5 +67,10 @@ const printRules = () => {
 }
 
 const getUserName = () => readlineSync.question('Welcome to the Brain Games!\nMay I have your name? ')
+
+const getRandomInt = () => {
+  const randomValues = crypto.getRandomValues((new Uint8Array(1)))
+  return randomValues[0]
+}
 
 export default game
