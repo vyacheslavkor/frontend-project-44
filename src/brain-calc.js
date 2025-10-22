@@ -15,12 +15,7 @@ const processQuestion = () => {
   gameCommon.yourAnswer(userAnswer)
 
   const isCorrectAnswer = userAnswer.toString() === questionData.answer.toString()
-  if (!isCorrectAnswer) {
-    gameCommon.showFailAnswer(userAnswer, questionData.answer)
-  }
-  else {
-    console.log('Correct!')
-  }
+  isCorrectAnswer ? console.log('Correct!') : gameCommon.showFailAnswer(userAnswer, questionData.answer)
 
   return isCorrectAnswer
 }

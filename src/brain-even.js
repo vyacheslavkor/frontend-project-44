@@ -17,12 +17,7 @@ const processQuestion = () => {
 
   const correctAnswer = isEvenNumber ? 'yes' : 'no'
   const isCorrectAnswer = userAnswer === correctAnswer
-  if (!isCorrectAnswer) {
-    gameCommon.showFailAnswer(userAnswer, correctAnswer)
-  }
-  else {
-    console.log('Correct!')
-  }
+  isCorrectAnswer ? console.log('Correct!') : gameCommon.showFailAnswer(userAnswer, correctAnswer)
 
   return isCorrectAnswer
 }
