@@ -1,6 +1,19 @@
 import readlineSync from 'readline-sync'
 import _ from 'lodash'
 
+export const game = (rules, processQuestion) => {
+  const userName = getUserName()
+  greetUser(userName)
+  printRules(rules)
+  const result = processQuestions(processQuestion)
+
+  result ? showSuccessMessage(userName) : showFailMessage(userName)
+}
+
+const printRules = () => {
+  console.log('What number is missing in the progression?')
+}
+
 export const getUserName = () => readlineSync.question('Welcome to the Brain Games!\nMay I have your name? ')
 
 export const greetUser = (userName) => {

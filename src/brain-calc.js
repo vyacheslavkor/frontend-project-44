@@ -1,12 +1,7 @@
 import * as gameCommon from './../src/game-common.js'
 
 const game = () => {
-  const userName = gameCommon.getUserName()
-  gameCommon.greetUser(userName)
-  printRules()
-  const result = gameCommon.processQuestions(processQuestion)
-
-  result ? gameCommon.showSuccessMessage(userName) : gameCommon.showFailMessage(userName)
+  gameCommon.game('What is the result of the expression?', processQuestion)
 }
 
 const processQuestion = () => {
@@ -34,10 +29,6 @@ const getQuestionWithAnswer = () => {
   const sign = signs[signIndex].sign
 
   return { question: `${a} ${sign} ${b}`, answer: signs[signIndex].answer(a, b) }
-}
-
-const printRules = () => {
-  console.log('What is the result of the expression?')
 }
 
 export default game

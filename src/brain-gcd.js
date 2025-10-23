@@ -1,12 +1,7 @@
 import * as gameCommon from './../src/game-common.js'
 
 const game = () => {
-  const userName = gameCommon.getUserName()
-  gameCommon.greetUser(userName)
-  printRules()
-  const result = gameCommon.processQuestions(processQuestion)
-
-  result ? gameCommon.showSuccessMessage(userName) : gameCommon.showFailMessage(userName)
+  gameCommon.game('Find the greatest common divisor of given numbers.', processQuestion)
 }
 
 const processQuestion = () => {
@@ -36,10 +31,6 @@ const findGcd = (a, b) => {
   }
 
   return a
-}
-
-const printRules = () => {
-  console.log('Find the greatest common divisor of given numbers.')
 }
 
 export default game

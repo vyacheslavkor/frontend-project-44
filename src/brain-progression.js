@@ -2,12 +2,7 @@ import * as gameCommon from './game-common.js'
 import _ from 'lodash'
 
 const game = () => {
-  const userName = gameCommon.getUserName()
-  gameCommon.greetUser(userName)
-  printRules()
-  const result = gameCommon.processQuestions(processQuestion)
-
-  result ? gameCommon.showSuccessMessage(userName) : gameCommon.showFailMessage(userName)
+  gameCommon.game('What number is missing in the progression?', processQuestion)
 }
 
 const processQuestion = () => {
@@ -40,10 +35,6 @@ const generateProgression = () => {
   }
 
   return result
-}
-
-const printRules = () => {
-  console.log('What number is missing in the progression?')
 }
 
 export default game
