@@ -1,5 +1,4 @@
 import * as gameCommon from './game-common.js'
-import _ from 'lodash'
 
 const game = () => {
   gameCommon.game('What number is missing in the progression?', processQuestion)
@@ -31,7 +30,7 @@ const generateProgression = () => {
   const result = [gameCommon.getRandomInt()]
 
   while (result.length < progressionLength) {
-    result.push(_.last(result) + step)
+    result.push(result.at(-1) + step)
   }
 
   return result
