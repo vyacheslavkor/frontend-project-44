@@ -21,30 +21,19 @@ const processQuestion = () => {
 }
 
 const getQuestionWithAnswer = () => {
-  const randomInt = gameCommon.getRandomInt()
-  const secondRandomInt = gameCommon.getRandomInt()
+  const a = gameCommon.getRandomInt()
+  const b = gameCommon.getRandomInt()
 
-  const signRandomInt = gameCommon.getRandomInt()
+  const signs = [
+    { sign: '+', answer: (a, b) => a + b },
+    { sign: '-', answer: (a, b) => a - b },
+    { sign: '*', answer: (a, b) => a * b },
+  ]
 
-  const multiplicationDivider = 3
-  const minusDivider = 2
+  const signIndex = gameCommon.getRandomInt(0, signs.length - 1)
+  const sign = signs[signIndex].sign
 
-  const result = {}
-
-  if (signRandomInt % multiplicationDivider === 0) {
-    result.question = `${randomInt} * ${secondRandomInt}`
-    result.answer = randomInt * secondRandomInt
-  }
-  else if (signRandomInt % minusDivider === 0) {
-    result.question = `${randomInt} - ${secondRandomInt}`
-    result.answer = randomInt - secondRandomInt
-  }
-  else {
-    result.question = `${randomInt} + ${secondRandomInt}`
-    result.answer = randomInt + secondRandomInt
-  }
-
-  return result
+  return { question: `${a} ${sign} ${b}`, answer: signs[signIndex].answer(a, b) }
 }
 
 const printRules = () => {

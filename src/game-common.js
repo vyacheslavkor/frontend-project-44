@@ -1,4 +1,5 @@
 import readlineSync from 'readline-sync'
+import _ from 'lodash'
 
 export const getUserName = () => readlineSync.question('Welcome to the Brain Games!\nMay I have your name? ')
 
@@ -18,9 +19,8 @@ export const showFailAnswer = (userAnswer, correctAnswer) => {
   console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`)
 }
 
-export const getRandomInt = () => {
-  const randomValues = crypto.getRandomValues((new Uint8Array(1)))
-  return randomValues[0]
+export const getRandomInt = (min = 1, max = 100) => {
+  return _.random(min, max)
 }
 
 export const question = question => readlineSync.question(`Question: ${question}\n`)

@@ -13,6 +13,7 @@
     "brain-gcd": "bin/brain-gcd.js"
   },
   "dependencies": {
+    "lodash": "^4.17.21",
     "readline-sync": "^1.4.10"
   },
   "devDependencies": {
